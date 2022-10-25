@@ -190,7 +190,8 @@
         const generatedArray: IDefaultSelect[] = [];
 
         for (let i = 0; i < max; i += increment) {
-            generatedArray.push({ value: i, text: i < 10 ? `0${i}` : `${i}` });
+            const textValue = String(props.is24 ? i : hoursToAmPmHours(i)).padStart(2, '0');
+            generatedArray.push({ value: i, text: textValue});
         }
 
         return getArrayInArray(generatedArray);
